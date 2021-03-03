@@ -8,8 +8,8 @@
 </head>
 <body>
 <ul>
-<li><a href="go?page=services">Students</a> </li>
-<li><a href="go?page=services-form">New Student</a></li>
+<li><a href="go?page=services">Services</a> </li>
+<li><a href="go?page=services-form">New Services</a></li>
 </ul>
 </body>
 </html>

@@ -3,14 +3,16 @@ package collectionsystem.controller;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import collectionsystem.controller.actions.UserAuthenticator;
+import collectionsystem.controller.actions.services.ActionListingServices;
 
 
-
+@WebServlet(urlPatterns = "/go")
 public class NavigatorServletController extends HttpServlet{
 	
 	/**
@@ -26,7 +28,7 @@ public class NavigatorServletController extends HttpServlet{
 		if(isSessionOpen(req)) {
 			if (page != null) {
 				if (page.equals("services")) {
-					//pageToGo = new StudentListGetter(req).execute();
+					pageToGo = new ActionListingServices(req).execute();
 				}
 				if (page.equals("services-form")) {
 					pageToGo = Pages.SERVICES_FORM.toString();

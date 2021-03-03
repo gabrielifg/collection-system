@@ -25,7 +25,7 @@ public class UserAuthenticator implements Action{
 		if(session.getAttribute("authenticatedUser")!=null)
 			return Pages.DASHBOARD.toString();
 		if(login!=null && pass!=null) {
-			if(login.equals("kenyo") && pass.equals("123")) {
+			if(login.equals("gabriel") && pass.equals("1234")) {
 				session.setAttribute("authenticatedUser", login);
 				return Pages.DASHBOARD.toString();
 			}
