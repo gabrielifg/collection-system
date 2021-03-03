@@ -2,12 +2,12 @@ package collectionsystem.controller.actions.services;
 
 import javax.servlet.http.HttpServletRequest;
 
-
-
+import collectionsystem.controller.actions.Action;
 import collectionsystem.dao.ServiceDAO;
 import collectionsystem.entities.Service;
 
-public class ActionSaveServices {
+public class ActionSaveServices implements Action{
+	
 	private HttpServletRequest req;
 
 	public ActionSaveServices(HttpServletRequest req) {
@@ -17,6 +17,7 @@ public class ActionSaveServices {
 	public String execute() {
 		
 		Service service = new Service();
+		
 		String idString = req.getParameter("id");
 		
 		if(idString != "") {
@@ -24,7 +25,7 @@ public class ActionSaveServices {
 			service.setId(id);
 		}
 		
-		String name = req.getParameter("input-nome");
+		String name = req.getParameter("input-name");
 		service.setName(name);
 		ServiceDAO dao = new ServiceDAO();
 		dao.save(service);

@@ -8,11 +8,11 @@
 </head>
 
 <body>
-	<form action="servicos" method="post">
+	<form action="services" id="form" method="post">
 		<input type="hidden" name="id" id="id" value="${service.getId()}" />
-		<p><input required type="text" name="input-nome" placeholder="Digite o nome" size="70" value="${service.getName() }"/></p>
+		<p><input required type="text" id="input-name" name="input-name" placeholder="Digite o nome" size="70" value="${service.getName()}"/></p>
 		
-		<p><input type="submit" class="button" name="btn-salva" value="salvar"/></p>
+		<p><input type="submit" id="save-button" name="btn-salva" value="salvar"/></p>
 	</form>
 </body>
 </html>

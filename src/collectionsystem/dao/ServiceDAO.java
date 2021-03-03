@@ -55,4 +55,9 @@ public class ServiceDAO {
 	public Service getService(long id) {
 		return em.find(Service.class, id);
 	}
+	
+	public Service get(String id) {
+		Service service = em.find(Service.class, id);
+		return service;
+	}
 }

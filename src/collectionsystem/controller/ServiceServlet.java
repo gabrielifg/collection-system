@@ -21,34 +21,35 @@ public class ServiceServlet extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String acao = req.getParameter("acao");
+		String operation = req.getParameter("operation");
 		String id = req.getParameter("id");
-		if(acao != null) {
-			if(acao.equals("editar")) {
+		if(operation != null) {
+			if(operation.equals("edit")) {
 				if(id != null) {
 					ActionLoadingServiceData actionLoadingServiceData = new ActionLoadingServiceData(req);
-					String pagina = actionLoadingServiceData.execute();
-					RequestDispatcher dispatcher = req.getRequestDispatcher(pagina);
+					//String page = new ServiceLoader(req).execute();
+					String page = actionLoadingServiceData.execute();
+					RequestDispatcher dispatcher = req.getRequestDispatcher(page);
 					dispatcher.forward(req, resp);
 				}
 			}
-			if(acao.equals("excluir")) {
+			if(operation.equals("delete")) {
 				if(id != null) {
 					String page = new ActionDeleteService(req).execute();
 					RequestDispatcher dispatcher = req.getRequestDispatcher(page);
 					dispatcher.forward(req, resp);
-					resp.sendRedirect("services.jsp");
+					//resp.sendRedirect("services.jsp");
 				}
 			}
 		} else {
-			String pagina = new ActionListingServices(req).execute();
-			RequestDispatcher dispatcher = req.getRequestDispatcher(pagina);
+			String page = new ActionListingServices(req).execute();
+			RequestDispatcher dispatcher = req.getRequestDispatcher(page);
 			dispatcher.forward(req, resp);	
 		}	
 	}
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//		String id = req.getParameter("id");
+
 		String page = new ActionSaveServices(req).execute();
 		RequestDispatcher dispatcher = req.getRequestDispatcher(page);
 		dispatcher.forward(req, resp);

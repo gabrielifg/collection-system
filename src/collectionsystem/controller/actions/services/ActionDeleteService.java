@@ -2,10 +2,11 @@ package collectionsystem.controller.actions.services;
 
 import javax.servlet.http.HttpServletRequest;
 
+import collectionsystem.controller.actions.Action;
 import collectionsystem.dao.ServiceDAO;
 import collectionsystem.entities.Service;
 
-public class ActionDeleteService {
+public class ActionDeleteService implements Action{
 	private HttpServletRequest req;
 
 	public ActionDeleteService(HttpServletRequest req){
@@ -13,13 +14,13 @@ public class ActionDeleteService {
 	}
 	
 	public String execute() {
-		Service servico = new Service();
+		Service service = new Service();
 		String idString = req.getParameter("id");
 		
 		Long id = Long.parseLong(idString);
-		servico.setId(id);
-		new ServiceDAO().delete(servico);
-		String pagina = new ActionListingServices(req).execute();
-		return pagina;
+		service.setId(id);
+		new ServiceDAO().delete(service);
+		String page = new ActionListingServices(req).execute();
+		return page;
 	}
 }

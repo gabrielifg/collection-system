@@ -2,10 +2,12 @@ package collectionsystem.controller.actions.services;
 
 import javax.servlet.http.HttpServletRequest;
 
+import collectionsystem.controller.Pages;
+import collectionsystem.controller.actions.Action;
 import collectionsystem.dao.ServiceDAO;
 import collectionsystem.entities.Service;
 
-public class ActionLoadingServiceData {
+public class ActionLoadingServiceData implements Action{
 	private HttpServletRequest req;
 
 	public ActionLoadingServiceData(HttpServletRequest req) {
@@ -20,6 +22,6 @@ public class ActionLoadingServiceData {
 		
 		service = new ServiceDAO().getService(id);
 		req.setAttribute("service", service);
-		return "services-form.jsp";
+		return Pages.SERVICES_FORM.toString();
 	}
 }
