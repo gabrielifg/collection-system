@@ -14,17 +14,17 @@ public class ServiceDAO {
 	
 	public ServiceDAO() {
 		jpaUtil = new JPAUtil();
-		em = JPAUtil.getEntityManager();
+		em = jpaUtil.getEntityManager();
 	}
 	
 	public void save(Service service) {
 		em.getTransaction().begin();
-		Service existence = getService(service.getId());
-		if(existence == null) {
+		Service existing = getService(service.getId());
+		if(existing == null) {
 			em.persist(service);
 		}else{
-			existence.setName(service.getName());
-			em.persist(existence);
+			existing.setName(service.getName());
+			em.persist(existing);
 		}
 		
 		em.getTransaction().commit();

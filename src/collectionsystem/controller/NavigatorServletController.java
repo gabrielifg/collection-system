@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import collectionsystem.controller.actions.UserAuthenticator;
+import collectionsystem.controller.actions.clients.ActionListingClients;
 import collectionsystem.controller.actions.services.ActionListingServices;
 
 
@@ -32,6 +33,15 @@ public class NavigatorServletController extends HttpServlet{
 				}
 				if (page.equals("services-form")) {
 					pageToGo = Pages.SERVICES_FORM.toString();
+				}
+				if (page.equals("clients")) {
+					pageToGo = new ActionListingClients(req).execute();
+				}
+				if (page.equals("clients-form")) {
+					pageToGo = Pages.CLIENTS_FORM.toString();
+				}
+				if (page.equals("dashboard")) {
+					pageToGo = Pages.DASHBOARD.toString();
 				}
 			}
 			

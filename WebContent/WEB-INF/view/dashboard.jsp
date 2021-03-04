@@ -10,6 +10,8 @@
 <ul>
 <li><a href="go?page=services">Services</a> </li>
 <li><a href="go?page=services-form">New Services</a></li>
+<li><a href="go?page=clients">Clients</a> </li>
+<li><a href="go?page=clients-form">New Clients</a></li>
 </ul>
 </body>
 </html>

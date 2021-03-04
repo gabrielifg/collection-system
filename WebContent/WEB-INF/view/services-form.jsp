@@ -12,7 +12,8 @@
 		<input type="hidden" name="id" id="id" value="${service.getId()}" />
 		<p><input required type="text" id="input-name" name="input-name" placeholder="Digite o nome" size="70" value="${service.getName()}"/></p>
 		
-		<p><input type="submit" id="save-button" name="btn-salva" value="salvar"/></p>
+		<p><input type="submit" id="save-button" name="btn-salva" value="save"/></p>
 	</form>
+	<p><a href="go?page=dashboard">back</a></p>
 </body>
 </html>

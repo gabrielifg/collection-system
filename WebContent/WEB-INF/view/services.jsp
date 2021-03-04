@@ -32,6 +32,8 @@
 		</tbody>
 
 	</table>
+	
+	<p><a href="go?page=dashboard">back</a></p>
 
 </body>
 </html>

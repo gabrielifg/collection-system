@@ -8,9 +8,9 @@ import javax.persistence.Persistence;
 public class JPAUtil {
 
 	private static EntityManagerFactory factory = Persistence.createEntityManagerFactory("collection");
-	
+
 	public static EntityManager getEntityManager() {
 		return factory.createEntityManager();
-	} 
+	}
 	
 }
